@@ -1,5 +1,5 @@
 import React from "react";
-import cardImage from '../images/house.jpeg'
+import cardImage from '../images/house.jpg'
 import Bedroom from "./Bedroom";
 import Bath from "./Bath";
 
