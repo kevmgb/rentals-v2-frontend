@@ -18,7 +18,7 @@ function Home() {
       <Jumbotron />
       <div className='card-container'>
             {apartments.map(apartment => (
-                <Card name = {apartment.name} bed = {apartment.beds} baths ={apartment.baths}/>
+                <Card id = {apartment.id} name = {apartment.name} beds = {apartment.beds} baths ={apartment.baths}/>
             ))}
       </div>
     </>

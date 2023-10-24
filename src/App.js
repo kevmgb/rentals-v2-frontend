@@ -5,6 +5,9 @@ import Home from './components/Home';
 import './App.css';
 import Footer from './components/Footer';
 import ResultsPage from './components/ResultsPage';
+import DetailsPage from './components/DetailsPage';
+import About from './components/About';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -15,7 +18,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/listing/detail/:id" element={<DetailsPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
+        
         <Footer />
       </div>
     </Router>

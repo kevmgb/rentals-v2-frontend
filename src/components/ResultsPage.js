@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const ResultsPage = () => {
     const location = useLocation();
     const results = location.state.results || [];
-    
+    console.log(location);
     return (
       <div>
         {results.length > 0 ? (
