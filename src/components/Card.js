@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Card({id, name, beds, baths}) {
     return (
         // <Link to={{ pathname: `/listing/detail/${id}`, state: { id, name, beds, baths } }}>
-        <Link to={`/listing/detail/${id}`} state={{id, name, beds, baths}}>
+        <Link to={`/listing/detail/${id}`} >
             <div className="card">
                 <img src={cardImage} alt="Card" className="card-image" />
                 <div className="card-content">
