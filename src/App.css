@@ -147,7 +147,20 @@
   align-self: center; 
 }
 
+.house-details {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.house-details img {
+  max-width: 100%;
+  height: auto;
+}
+
 footer {
+  height: 50px;
+  flex-shrink: 0;
   background-color: #f8f8f8;
   padding: 10px;
   text-align: center;
@@ -155,4 +168,61 @@ footer {
   width: 100%;
 }
 
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
 
+.about h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 1.2em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

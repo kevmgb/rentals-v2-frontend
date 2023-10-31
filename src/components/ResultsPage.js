@@ -13,7 +13,7 @@ const ResultsPage = () => {
 
           <div className='card-container'>
             {results.map((apartment, index) => (
-              <Card name = {apartment.name} bed = {apartment.beds} baths ={apartment.baths}/>
+              <Card id = {apartment.id} name = {apartment.name} bed = {apartment.beds} baths ={apartment.baths}/>
             ))}
           </div>
         ) : (
