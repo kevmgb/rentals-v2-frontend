@@ -8,12 +8,15 @@ import ResultsPage from './components/ResultsPage';
 import DetailsPage from './components/DetailsPage';
 import About from './components/About';
 import Contact from './components/Contact';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import NavbarUpdated from './components/NavbarUpdated';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar />
+      
+        <NavbarUpdated />
       
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,10 +24,12 @@ function App() {
           <Route path="/listing/detail/:id" element={<DetailsPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
         
         <Footer />
-      </div>
+      
     </Router>
   );
 }

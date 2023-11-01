@@ -7,8 +7,7 @@ function Navbar() {
     <nav className="navbar">
       <ul className="nav-list">
         <li><NavLink exact to="/">Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
+        <li><NavLink exact to="/login">Login</NavLink></li>
       </ul>
     </nav>
   );
