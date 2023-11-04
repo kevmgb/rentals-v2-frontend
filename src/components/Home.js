@@ -30,24 +30,26 @@ function Home() {
   return (
     <>
     <JumbotronUpdated />
-      <div className='container'>
-        <MDBRow className='row-cols-3 row-cols-md-4 g-4'>
+      <div className='container' style={{ marginBottom: '40px' }}>
+        <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
           
                 {apartments.map(apartment => (
                     <CardUpdated id = {apartment.id} name = {apartment.name} beds = {apartment.beds} baths ={apartment.baths}/>
                 ))}
             
           </MDBRow>
-              {/* <Card id="1" name="Three bedroom in Ruaka" beds="1" baths="2" />
-              <Card id="2" name="Two bedroom in Ruai" beds="1" baths="2" />
-              <Card id="3" name="Bedsitter in Juja" beds="1" baths="2" />
-              <Card id="4" name="One bedroom in Kinoo" beds="1" baths="2" />
-              <Card id="5" name="Four bedroom in Kasarani" beds="1" baths="2" />
-              <Card id="6" name="Three bedroom in Ruaka" beds="1" baths="2" />
-              <Card id="7" name="Three bedroom in Ruaka" beds="1" baths="2" />
-              <Card id="8" name="Three bedroom in Ruaka" beds="1" baths="2" />
-              <Card id="9" name="Three bedroom in Ruaka" beds="1" baths="2" />
-              <Card id="10" name="Three bedroom in Ruaka" beds="1" baths="2" /> */}
+          {/* <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
+              <CardUpdated id="1" name="Three bedroom in Ruaka dshhdhshdhhsdhhhsdh dsdsdsdsdsds hdhshdhhshdhsd jjjjjjjjjjjjjjjsdjhsjhfkjshfkhskfhshfshfkjshfkjshfjkhsdjkfhsjkf" beds="1" baths="2" />
+              <CardUpdated id="2" name="Two bedroom in Ruai" beds="1" baths="2" />
+              <CardUpdated id="3" name="Bedsitter in Juja" beds="1" baths="2" />
+              <CardUpdated id="4" name="One bedroom in Kinoo" beds="1" baths="2" />
+              <CardUpdated id="5" name="Four bedroom in Kasarani" beds="1" baths="2" />
+              <CardUpdated id="6" name="Three bedroom in Ruaka" beds="1" baths="2" />
+              <CardUpdated id="7" name="Three bedroom in Ruaka" beds="1" baths="2" />
+              <CardUpdated id="8" name="Three bedroom in Ruaka" beds="1" baths="2" />
+              <CardUpdated id="9" name="Three bedroom in Ruaka" beds="1" baths="2" />
+              <CardUpdated id="10" name="Three bedroom in Ruaka" beds="1" baths="2" />
+            </MDBRow> */}
         </div>
     </>
     

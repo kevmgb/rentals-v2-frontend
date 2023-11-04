@@ -53,8 +53,8 @@ import { Link } from 'react-router-dom';
 export default function CardUpdated({id, name, beds, baths}) {
   return (
     <Link to={`/listing/detail/${id}`} >
-      <MDBCol>
-        <MDBCard >
+      <MDBCol className='h-100'>
+        <MDBCard className='h-100'>
             <MDBCardImage src={cardImage} alt='...' position='top'/>
             <MDBCardBody>
             <MDBCardTitle>{name}</MDBCardTitle>
