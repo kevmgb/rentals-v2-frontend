@@ -47,23 +47,21 @@ import {
   MDBRow,
   MDBCol
 } from 'mdb-react-ui-kit';
-import cardImage from '../images/house.jpg'
+import cardImage from '../images/house.jpg';
+import { Link } from 'react-router-dom';
+
 export default function CardUpdated({id, name, beds, baths}) {
   return (
-    <MDBCol>
-    <MDBCard >
-        <MDBCardImage
-        src={cardImage}
-        alt='...'
-        position='top'
-        />
-        <MDBCardBody>
-        <MDBCardTitle>{name}</MDBCardTitle>
-        <MDBCardText>
-            Placeholder
-        </MDBCardText>
-        </MDBCardBody>
-    </MDBCard>
-    </MDBCol>
+    <Link to={`/listing/detail/${id}`} >
+      <MDBCol>
+        <MDBCard >
+            <MDBCardImage src={cardImage} alt='...' position='top'/>
+            <MDBCardBody>
+            <MDBCardTitle>{name}</MDBCardTitle>
+            <MDBCardText>Placeholder</MDBCardText>
+            </MDBCardBody>
+        </MDBCard>
+      </MDBCol>
+    </Link>
   );
 }

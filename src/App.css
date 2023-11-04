@@ -247,3 +247,13 @@ button:hover {
   max-width: 100%;
   height: auto;
 } */
+
+.container-full {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+}
