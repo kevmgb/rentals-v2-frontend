@@ -8,7 +8,7 @@ import ResultsPage from './components/ResultsPage';
 import DetailsPage from './components/DetailsPage';
 import About from './components/About';
 import Contact from './components/Contact';
-import Login from './components/Login';
+import Login from './components/LoginSignup';
 import Signup from './components/Signup';
 import NavbarUpdated from './components/NavbarUpdated';
 
