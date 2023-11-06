@@ -24,6 +24,7 @@ function LoginSignup() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const navigate = useNavigate();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -58,6 +59,8 @@ function LoginSignup() {
       // Handle successful response from the backend
       console.log('Login successful:', response.data.token);
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('isLogged', 'true');
+
       // Redirect to the home page
       navigate('/');
 
