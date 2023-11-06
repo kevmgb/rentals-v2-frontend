@@ -11,6 +11,7 @@ import Login from './components/LoginSignup';
 import Signup from './components/Signup';
 import NavbarUpdated from './components/NavbarUpdated';
 import UserProfilePage from './components/UserProfilePage';
+import SignupSuccess from './components/SignupSuccess';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/user" element={<UserProfilePage />} />
+          <Route path="/signup/success" element={<SignupSuccess />} />
         </Routes>
         
         <Footer />

@@ -2,10 +2,9 @@ import React from "react";
 
 function About() {
   return (
-    <div className="about">
-
-      <h3>About Us</h3>
-      <h2>About Us</h2>
+    <div className="container-full" style={{ marginTop: '40px' }}>
+    <div className="p-3 my-5 d-flex flex-column w-50">
+    <h2>About Us</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at purus a ex ullamcorper semper.
         Nulla facilisi. Maecenas eget viverra mi. Donec euismod dui at efficitur lacinia. Curabitur consequat
@@ -17,6 +16,8 @@ function About() {
         nisl. Quisque tincidunt vestibulum urna, in egestas tortor feugiat sit amet. Nam ullamcorper nunc
         ut libero lacinia vulputate.
       </p>
+    </div>
+      
     </div>
   );
 }

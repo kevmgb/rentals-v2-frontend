@@ -19,6 +19,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function LoginSignup() {
+  const [signupEmail, setSignupEmail] = useState('');
+  const [signupPassword, setSignupPassword] = useState('');
+  const [signupName, setSignupName] = useState('');
 
   const [justifyActive, setJustifyActive] = useState('tab1');;
 
@@ -32,6 +35,18 @@ function LoginSignup() {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  }
+
+  const handleSignupEmailChange = (e) => {
+    setSignupEmail(e.target.value);
+  }
+
+  const handleSignupPasswordChange = (e) => {
+    setSignupPassword(e.target.value);
+  }
+
+  const handleSignupNameChange = (e) => {
+    setSignupName(e.target.value);
   }
 
   const handleJustifyClick = (value) => {
@@ -83,6 +98,29 @@ function LoginSignup() {
       // Logging out
       // localStorage.removeItem('token');
       
+    })
+    .catch(error => {
+      // Handle error response from the backend
+      console.error('Error:', error);
+      alert("An erorr ocurred");
+    });
+  }
+
+  const handleSignupSubmit = (e) => {
+    
+    e.preventDefault();
+    
+    axios.post('http://localhost:8080/api/v1/register', {
+      name: signupName,
+      email: signupEmail,
+      password: signupPassword
+    })
+    .then(response => {
+      // Handle successful response from the backend
+      console.log('Signup successful:', response.data);
+      
+      // Redirect to the home page
+      navigate('/signup/success');    
     })
     .catch(error => {
       // Handle error response from the backend
@@ -177,16 +215,18 @@ function LoginSignup() {
             <p className="text-center mt-3">or:</p>
           </div>
 
-          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
+          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text' value={signupName} onChange={handleSignupNameChange}/>
+          <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' value={signupEmail} onChange={handleSignupEmailChange}/>
+          <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' value={signupPassword} onChange={handleSignupPasswordChange}/>
 
           <div className='d-flex justify-content-center mb-4'>
             <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
           </div>
 
-          <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
-
+          <form onSubmit={handleSignupSubmit}>
+            <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
+          </form>
+          
         </MDBTabsPane>
 
       </MDBTabsContent>
