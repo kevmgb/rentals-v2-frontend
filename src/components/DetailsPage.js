@@ -19,9 +19,6 @@ function DetailsPage() {
     const {id} = useParams();
     const [houseDetails, setHouseDetails] = useState({});
     const [loading, setLoading] = useState(true);
-
-    let agentName = "Agent Name 001";
-    let agentContact = "0700000000";
     useEffect(() => {
       fetch(`http://localhost:8080/api/v1/listing/${id}`)
         .then(response => response.json())
@@ -54,7 +51,7 @@ function DetailsPage() {
                     <HouseSpecifications beds={houseDetails.beds} bathrooms={houseDetails.baths}/>
                   </div>
                   <div className="col-md-12 mb-4">
-                    <AgentInfo name={agentName} contact={agentContact}/>
+                    <AgentInfo name={houseDetails.userName} contact={houseDetails.contact}/>
                   </div>
                   <div className="col-md-12 mb-4">
                   <MDBCardBody>

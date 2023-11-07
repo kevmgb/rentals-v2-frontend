@@ -11,8 +11,8 @@ export default function AgentInfo({name, contact}) {
     <MDBCard>
       <MDBCardHeader>Agent Information:</MDBCardHeader>
       <MDBListGroup flush>
-        <MDBListGroupItem>Name    {name}</MDBListGroupItem>
-        <MDBListGroupItem>Contact   {contact}</MDBListGroupItem>
+        <MDBListGroupItem>Name:    {name}</MDBListGroupItem>
+        <MDBListGroupItem>Contact:   <a href={`mailto:${contact}`}>{contact}</a></MDBListGroupItem>
       </MDBListGroup>
     </MDBCard>
   );
