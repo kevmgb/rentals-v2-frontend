@@ -15,7 +15,10 @@ import {
   MDBCol
 } from 'mdb-react-ui-kit';
 import JumbotronUpdated from './JumbotronUpdated';
-function Home() {
+import NavbarUpdated from './NavbarUpdated';
+import Footer from './Footer';
+
+function Home({ isLoggedIn }) {
   const [apartments, setApartments] = useState([]);
 
   console.log(apartments);
@@ -29,12 +32,13 @@ function Home() {
 
   return (
     <>
+    
     <JumbotronUpdated />
       <div className='container' style={{ marginBottom: '40px' }}>
         <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
           
                 {apartments.map(apartment => (
-                    <CardUpdated id = {apartment.id} name = {apartment.name} beds = {apartment.beds} baths ={apartment.baths}/>
+                    <CardUpdated id = {apartment.id} name = {apartment.name} beds = {apartment.beds} baths ={apartment.baths} description={apartment.description}/>
                 ))}
             
           </MDBRow>

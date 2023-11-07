@@ -31,7 +31,7 @@ function App() {
         <NavbarUpdated isLoggedIn={isLoggedIn}/>
       
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home isLoggedIn={isLoggedIn}/>} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/listing/detail/:id" element={<DetailsPage />} />
           <Route path="/about" element={<About />} />

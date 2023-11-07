@@ -53,7 +53,7 @@ import {
 import cardImage from '../images/house.jpg';
 import { Link } from 'react-router-dom';
 
-export default function CardUpdated({id, name, beds, baths}) {
+export default function CardUpdated({id, name, beds, baths, description}) {
   return (
     <Link to={`/listing/detail/${id}`} style={{ color: 'inherit' }}>
       <MDBCol className='h-100'>
@@ -61,7 +61,7 @@ export default function CardUpdated({id, name, beds, baths}) {
             <MDBCardImage src={cardImage} alt='...' position='top'/>
             <MDBCardHeader>{name}</MDBCardHeader>
             <MDBCardBody>
-              <MDBCardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </MDBCardText>
+              <MDBCardText>{description}</MDBCardText>
             </MDBCardBody>
             <MDBCardFooter className='text-muted'>
               <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
