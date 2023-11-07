@@ -21,7 +21,9 @@ export default function UserProfileDropDown() {
             <MDBDropdownItem link>View Profile</MDBDropdownItem>
         </Link>
 
-         
+        <Link to="/post">
+            <MDBDropdownItem link>Post a property</MDBDropdownItem>
+        </Link>
         <MDBDropdownItem link onClick={Signout}>Logout</MDBDropdownItem>
         
       </MDBDropdownMenu>
