@@ -257,3 +257,7 @@ button:hover {
 .content {
   flex-grow: 1;
 }
+
+.custom-ml-auto {
+  margin-left: auto;
+}

@@ -1,4 +1,4 @@
-import React ,{ useState, useEffect }from 'react';
+import React ,{ useState, useEffect, useRef }from 'react';
 import '../App.css';
 import Card from './Card';
 import Jumbotron from './Jumbotron';
@@ -12,33 +12,63 @@ import {
   MDBBtn,
   MDBRipple,
   MDBRow,
-  MDBCol
+  MDBCol,
+  MDBIcon
 } from 'mdb-react-ui-kit';
 import JumbotronUpdated from './JumbotronUpdated';
 import NavbarUpdated from './NavbarUpdated';
 import Footer from './Footer';
+import axios from 'axios';
 
 function Home({ isLoggedIn }) {
-  const [apartments, setApartments] = useState([]);
+  const [listings, setListings] = useState([]);
+  const [totalElements, setTotalElements] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(12);
+  const contentRef = useRef();
+  const handlePreviousClick = () => {
+    setPageNumber(pageNumber - 1);
+    
+    if (contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-  console.log(apartments);
-  
-  useEffect(() => {
-    fetch('http://localhost:8080/api/v1/listings')
-      .then(response => response.json())
-      .then(data => setApartments(data))
+  const handleNextClick = () => {
+    setPageNumber(pageNumber + 1);
+    
+    if (contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const loadListings = (page, size) => {
+    axios.get(`http://localhost:8080/api/v1/listings?page=${page}&size=${size}`)
+      .then(response => {
+        const { content, totalElements, totalPages, pageNumber, pageSize } = response.data;
+        setListings(content);
+        setTotalElements(totalElements);
+        setTotalPages(totalPages);
+        setPageNumber(pageNumber);
+        setPageSize(pageSize);
+      })
       .catch(error => console.error('Error:', error));
-  }, []);
+  };
+
+  useEffect(() => {
+    loadListings(pageNumber, pageSize);
+  }, [pageNumber, pageSize]);
 
   return (
     <>
     
     <JumbotronUpdated />
-      <div className='container' style={{ marginBottom: '40px' }}>
+      <div className='container' style={{ marginBottom: '40px' }} ref={contentRef}>
         <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
           
-                {apartments.map(apartment => (
-                    <CardUpdated id = {apartment.id} name = {apartment.name} beds = {apartment.beds} baths ={apartment.baths} description={apartment.description}/>
+                {listings.map(listing => (
+                    <CardUpdated id = {listing.id} name = {listing.name} beds = {listing.beds} baths ={listing.baths} description={listing.description}/>
                 ))}
             
           </MDBRow>
@@ -54,6 +84,18 @@ function Home({ isLoggedIn }) {
               <CardUpdated id="9" name="Three bedroom in Ruaka" beds="1" baths="2" />
               <CardUpdated id="10" name="Three bedroom in Ruaka" beds="1" baths="2" />
             </MDBRow> */}
+
+            <div className="d-flex justify-content-center align-items-center mb-4 mt-4">
+              <MDBBtn floating size='lg' tag='a' disabled={pageNumber === 1} onClick={handlePreviousClick} className="mx-2">
+                <MDBIcon fas icon="chevron-left"/>
+              </MDBBtn>
+              <MDBBtn floating size='lg' tag='a' disabled={pageNumber === totalPages} onClick={handleNextClick} className="mx-2">
+                <MDBIcon fas icon="chevron-right" />
+              </MDBBtn>
+              <div className="custom-ml-auto">
+                Page {pageNumber} of {totalPages}
+              </div>
+            </div>
         </div>
     </>
     
