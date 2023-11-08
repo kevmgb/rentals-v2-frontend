@@ -20,7 +20,7 @@ import NavbarUpdated from './NavbarUpdated';
 import Footer from './Footer';
 import axios from 'axios';
 
-function Home({ isLoggedIn }) {
+function Home() {
   const [listings, setListings] = useState([]);
   const [totalElements, setTotalElements] = useState(0);
   const [totalPages, setTotalPages] = useState(0);

@@ -3,13 +3,7 @@ import { MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem, MDBIc
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-export default function UserProfileDropDown() {
-  const navigate = useNavigate();
-  function Signout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('isLogged');
-    navigate('/');
-  }
+export default function UserProfileDropDown({ handleSignout }) {
   return (
     <MDBDropdown>
     
@@ -29,7 +23,7 @@ export default function UserProfileDropDown() {
             <MDBDropdownItem link>My posts</MDBDropdownItem>
         </Link>
 
-        <MDBDropdownItem link onClick={Signout}>Logout</MDBDropdownItem>
+        <MDBDropdownItem link onClick={handleSignout}>Logout</MDBDropdownItem>
         
       </MDBDropdownMenu>
     </MDBDropdown>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   MDBContainer,
   MDBNavbar,
@@ -10,7 +10,7 @@ import logo from '../images/logo.png';
 import { NavLink } from 'react-router-dom';
 import UserProfileDropDown from './UserProfileDropDown';
 
-export default function App({ isLoggedIn }) {
+export default function NavbarUpdated({ isLoggedIn, handleSignout }) {
   return (
     <>
       <MDBNavbar light bgColor='light'>
@@ -18,20 +18,15 @@ export default function App({ isLoggedIn }) {
           <MDBNavbarBrand href='/'>
             <img src={logo} width="30" height="40"/>
           </MDBNavbarBrand>
-            {/* <MDBNavbarBrand href='/user'>
-                <MDBIcon fas icon="user-circle" size='2x'/>
-              </MDBNavbarBrand> */}
-            {isLoggedIn ? (
-              <UserProfileDropDown />
-              
+            {Boolean(isLoggedIn) ? (
+                <UserProfileDropDown handleSignout={handleSignout}/>
             ) : (
               <MDBNavbarBrand href='/login'>
                 <MDBBtn type='button' outline rounded className='m-1'>
                   <NavLink exact to="/login">Login</NavLink>
                 </MDBBtn>
               </MDBNavbarBrand>
-            )}
-          
+            )}  
         </MDBContainer>
       </MDBNavbar>
     </>

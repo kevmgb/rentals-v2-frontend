@@ -18,7 +18,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function LoginSignup() {
+function LoginSignup({setIsLoggedIn}) {
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
   const [signupName, setSignupName] = useState('');
@@ -61,11 +61,6 @@ function LoginSignup() {
     
     e.preventDefault();
     
-    console.log("===================")
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log("===================")
-  
     axios.post('http://localhost:8080/api/v1/login', {
       email: email,
       password: password
@@ -75,29 +70,9 @@ function LoginSignup() {
       console.log('Login successful:', response.data.token);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('isLogged', 'true');
-
+      setIsLoggedIn(true);
       // Redirect to the home page
       navigate('/');
-
-      // Retriving token from localStorage
-      // const token = localStorage.getItem('token');
-      // Including token in other requests
-      // axios.post('YOUR_API_ENDPOINT', {
-      //   // ... other request data
-      // }, {
-      //   headers: {
-      //     'Authorization': `Bearer ${token}`
-      //   }
-      // })
-      // .then(response => {
-      //   // Handle response
-      // })
-      // .catch(error => {
-      //   // Handle error
-      // });
-      // Logging out
-      // localStorage.removeItem('token');
-      
     })
     .catch(error => {
       // Handle error response from the backend
