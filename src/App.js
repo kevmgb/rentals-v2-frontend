@@ -13,6 +13,7 @@ import NavbarUpdated from './components/NavbarUpdated';
 import UserProfilePage from './components/UserProfilePage';
 import SignupSuccess from './components/SignupSuccess';
 import ListingPost from './components/ListingPost';
+import UserPosts from './components/UserPosts';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +42,7 @@ function App() {
           <Route path="/user" element={<UserProfilePage />} />
           <Route path="/signup/success" element={<SignupSuccess />} />
           <Route path="/post" element={<ListingPost />} />
+          <Route path="/user/posts" element={<UserPosts />} />
         </Routes>
         
         <Footer />
