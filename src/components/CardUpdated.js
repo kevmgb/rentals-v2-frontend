@@ -48,26 +48,57 @@ import {
   MDBCol,
   MDBCardFooter,
   MDBCardHeader,
-  MDBIcon
+  MDBIcon,
+  MDBBtn
 } from 'mdb-react-ui-kit';
 import cardImage from '../images/house.jpg';
 import { Link } from 'react-router-dom';
 
-export default function CardUpdated({id, name, beds, baths, description}) {
+export default function CardUpdated({id, name, beds, baths, description, canDelete}) {
+  // const handleDeletePost = () => {
+  //   axios.get(`http://localhost:8080/api/v1/user/listings?page=${page}&size=${size}` , {
+  //       headers: {
+  //           "Content-Type": "application/json",
+  //           'Access-Control-Allow-Origin': '*',
+  //           'Authorization': `Bearer ${token}`
+  //         }
+  //   })
+  //     .then(response => {
+  //       const { content, totalElements, totalPages, pageNumber, pageSize } = response.data;
+  //       setListings(content);
+  //       setTotalElements(totalElements);
+  //       setTotalPages(totalPages);
+  //       setPageNumber(pageNumber);
+  //       setPageSize(pageSize);
+  //     })
+  //     .catch(error => console.error('Error:', error));
+  // };
+  const handleDeletePost = () => {
+    console.log("Deleted!");
+  }
   return (
-    <Link to={`/listing/detail/${id}`} style={{ color: 'inherit' }}>
+    
       <MDBCol className='h-100'>
         <MDBCard className='h-100'>
+        <Link to={`/listing/detail/${id}`} style={{ color: 'inherit' }}>
             <MDBCardImage src={cardImage} alt='...' position='top'/>
             <MDBCardHeader>{name}</MDBCardHeader>
             <MDBCardBody>
               <MDBCardText>{description}</MDBCardText>
             </MDBCardBody>
+            </Link>
             <MDBCardFooter className='text-muted'>
               <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-                <MDBCol className='col-md-8'>
+                <MDBCol className='col-md-6'>
                   <small className='text-muted'>Posted 2 days ago</small>
                 </MDBCol>
+                
+                {canDelete && (
+                  <MDBCol className='col-md-2'>
+                    <MDBIcon fas icon="trash-alt" onClick={handleDeletePost} style={{ cursor: 'pointer' }}/>
+                  </MDBCol>
+                )}
+
                 <MDBCol className='col-md-2'>
                   <MDBIcon fas icon="bed" /> {beds} 
                 </MDBCol>
@@ -78,6 +109,5 @@ export default function CardUpdated({id, name, beds, baths, description}) {
             </MDBCardFooter>
         </MDBCard>
       </MDBCol>
-    </Link>
   );
 }
