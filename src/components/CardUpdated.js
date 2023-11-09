@@ -1,42 +1,3 @@
-// import React from 'react';
-// import cardImage from '../images/house.jpg';
-// import {
-//   MDBCard,
-//   MDBCardBody,
-//   MDBCardTitle,
-//   MDBCardText,
-//   MDBCardImage,
-//   MDBBtn,
-//   MDBRipple,
-//   MDBRow,
-//   MDBCol
-// } from 'mdb-react-ui-kit';
-
-// export default function CardUpdated({id, name, beds, baths}) {
-//   return (
-//     // <MDBRow>
-//     //   <MDBCol sm='3'>
-//         <MDBCard>
-//             <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-//                 <MDBCardImage src={cardImage} fluid alt='...' />
-//                 <a>
-//                 <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
-//                 </a>
-//             </MDBRipple>
-//             <MDBCardBody>
-//                 <MDBCardTitle>{name}</MDBCardTitle>
-//                 <MDBCardText>
-//                 Some quick example text to build on the card title and make up the bulk of the card's content.
-//                 </MDBCardText>
-//                 <MDBBtn href='#'>Button</MDBBtn>
-//             </MDBCardBody>
-//             </MDBCard>
-//     //   </MDBCol>
-//     // </MDBRow>
-    
-//   );
-// }
-
 import React from 'react';
 import {
   MDBCard,
@@ -53,29 +14,24 @@ import {
 } from 'mdb-react-ui-kit';
 import cardImage from '../images/house.jpg';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-export default function CardUpdated({id, name, beds, baths, description, canDelete}) {
+export default function CardUpdated({id, name, beds, baths, description, canDelete, handleDeletePost}) {
+  
   // const handleDeletePost = () => {
-  //   axios.get(`http://localhost:8080/api/v1/user/listings?page=${page}&size=${size}` , {
+  //   const token = localStorage.getItem('token');
+  //   axios.delete(`http://localhost:8080/api/v1/listing/delete/${id}`, {
   //       headers: {
-  //           "Content-Type": "application/json",
   //           'Access-Control-Allow-Origin': '*',
   //           'Authorization': `Bearer ${token}`
   //         }
   //   })
   //     .then(response => {
-  //       const { content, totalElements, totalPages, pageNumber, pageSize } = response.data;
-  //       setListings(content);
-  //       setTotalElements(totalElements);
-  //       setTotalPages(totalPages);
-  //       setPageNumber(pageNumber);
-  //       setPageSize(pageSize);
+  //       console.log(response.data);
   //     })
   //     .catch(error => console.error('Error:', error));
   // };
-  const handleDeletePost = () => {
-    console.log("Deleted!");
-  }
+  
   return (
     
       <MDBCol className='h-100'>
@@ -95,7 +51,7 @@ export default function CardUpdated({id, name, beds, baths, description, canDele
                 
                 {canDelete && (
                   <MDBCol className='col-md-2'>
-                    <MDBIcon fas icon="trash-alt" onClick={handleDeletePost} style={{ cursor: 'pointer' }}/>
+                    <MDBIcon fas icon="trash-alt" onClick={() => handleDeletePost({ id: id })} style={{ cursor: 'pointer' }}/>
                   </MDBCol>
                 )}
 

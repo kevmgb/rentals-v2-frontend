@@ -35,6 +35,21 @@ function UserPosts({ isLoggedIn }) {
     }
   };
 
+  const handleDeletePost = ({ id }) => {
+    const token = localStorage.getItem('token');
+    axios.delete(`http://localhost:8080/api/v1/listing/delete/${id}`, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': `Bearer ${token}`
+          }
+    })
+      .then(response => {
+        console.log(response.data);
+        setListings(prevListings => prevListings.filter(listing => listing.id !== id));
+      })
+      .catch(error => console.error('Error:', error));
+  };
+
   const handleNextClick = () => {
     setPageNumber(pageNumber + 1);
     
@@ -75,7 +90,7 @@ function UserPosts({ isLoggedIn }) {
         <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
           
                 {listings.map(listing => (
-                    <CardUpdated id = {listing.id} name = {listing.name} beds = {listing.beds} baths ={listing.baths} description={listing.description} canDelete={true}/>
+                    <CardUpdated id = {listing.id} name = {listing.name} beds = {listing.beds} baths ={listing.baths} description={listing.description} canDelete={true} handleDeletePost={handleDeletePost}/>
                 ))}
             
           </MDBRow>
