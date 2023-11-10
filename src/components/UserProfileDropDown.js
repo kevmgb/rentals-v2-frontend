@@ -8,7 +8,7 @@ export default function UserProfileDropDown({ handleSignout }) {
     <MDBDropdown>
     
       <MDBDropdownToggle tag='a' className='btn' style={{ outline: 'none', boxShadow: 'none' }}>
-        <MDBIcon fas icon="user-circle" size='2x'/>
+        <MDBIcon far icon="user-circle" size='3x' style={{ color: 'white' }}/>
       </MDBDropdownToggle>
       <MDBDropdownMenu>
         <Link to="/user">

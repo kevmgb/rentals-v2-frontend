@@ -13,7 +13,7 @@ import UserProfileDropDown from './UserProfileDropDown';
 export default function NavbarUpdated({ isLoggedIn, handleSignout }) {
   return (
     <>
-      <MDBNavbar light bgColor='light'>
+      <MDBNavbar light style={{ backgroundColor: 'rgb(86, 61, 124)' }}>
         <MDBContainer>
           <MDBNavbarBrand href='/'>
             <img src={logo} width="30" height="40"/>
