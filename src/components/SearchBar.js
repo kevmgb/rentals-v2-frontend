@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {
+  MDBInputGroup,
+  MDBBtn
+} from 'mdb-react-ui-kit';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,24 +21,18 @@ const SearchBar = () => {
     fetch(`http://localhost:8080/api/v1/listings/search?query=${searchTerm}`)
     .then((response) => response.json())
     .then((data) => {
-      if (data.length > 0) {
-        navigate('/results', {state: { results: data }});
-      }
+      navigate('/results', {state: { results: data }});
     })
     .catch((error) => console.error('Error:', error));
   };
 
   return (
-    <div>
-      <input
-        className='search-input' 
-        type="text" 
-        value={searchTerm} 
-        onChange={handleInputChange} 
-        placeholder="Enter your search term" 
-      />
-      <button className="search-button" onClick={handleSearch}>Search</button>
-    </div>
+    <>
+      <MDBInputGroup className='mb-3'>
+        <input className='form-control' placeholder="Search..." type='text' value={searchTerm} onChange={handleInputChange}/>
+        <MDBBtn onClick={handleSearch}>Search</MDBBtn>
+      </MDBInputGroup>
+    </>
   );
 };
 
