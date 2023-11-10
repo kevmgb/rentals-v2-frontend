@@ -1,7 +1,6 @@
 import React from 'react';
-import Card from './Card';
 import { useLocation } from 'react-router-dom';
-
+import CardUpdated from './CardUpdated';
 
 const ResultsPage = () => {
     const location = useLocation();
@@ -13,7 +12,7 @@ const ResultsPage = () => {
 
           <div className='card-container'>
             {results.map((apartment, index) => (
-              <Card id = {apartment.id} name = {apartment.name} bed = {apartment.beds} baths ={apartment.baths}/>
+              <CardUpdated id = {apartment.id} name = {apartment.name} beds = {apartment.beds} baths ={apartment.baths} description={apartment.description} canDelete={false}/>
             ))}
           </div>
         ) : (

@@ -10,7 +10,7 @@ import {
   MDBCollapse,
   MDBBtn
 } from 'mdb-react-ui-kit';
-import jumbotronImage from '../images/nairobi.jpg'
+import jumbotronImage from '../images/roomimage.jpg'
 
 export default function JumbotronUpdated() {
 

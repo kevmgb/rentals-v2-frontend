@@ -1,7 +1,5 @@
 import React ,{ useState, useEffect, useRef }from 'react';
 import '../App.css';
-import Card from './Card';
-import Jumbotron from './Jumbotron';
 import CardUpdated from './CardUpdated';
 import {
   MDBCard,
