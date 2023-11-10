@@ -24,9 +24,8 @@ function UserProfilePage() {
     e.preventDefault();
     
     
-    axios.post("http://localhost:8080/api/v1/user/update", {
+    axios.put("http://localhost:8080/api/v1/user", {
       name: name,
-      email: email,
     }, {
         headers: {
           "Content-Type": "application/json",
