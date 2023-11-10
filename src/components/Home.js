@@ -2,20 +2,11 @@ import React ,{ useState, useEffect, useRef }from 'react';
 import '../App.css';
 import CardUpdated from './CardUpdated';
 import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardImage,
   MDBBtn,
-  MDBRipple,
   MDBRow,
-  MDBCol,
   MDBIcon
 } from 'mdb-react-ui-kit';
 import JumbotronUpdated from './JumbotronUpdated';
-import NavbarUpdated from './NavbarUpdated';
-import Footer from './Footer';
 import axios from 'axios';
 
 function Home() {
@@ -84,10 +75,10 @@ function Home() {
             </MDBRow> */}
 
             <div className="d-flex justify-content-center align-items-center mb-4 mt-4">
-              <MDBBtn floating size='lg' tag='a' disabled={pageNumber === 1} onClick={handlePreviousClick} className="mx-2">
+              <MDBBtn floating size='lg' tag='a' disabled={pageNumber === 1} onClick={handlePreviousClick} className="mx-2" style={{ backgroundColor: 'rgb(86, 61, 124)' }}>
                 <MDBIcon fas icon="chevron-left"/>
               </MDBBtn>
-              <MDBBtn floating size='lg' tag='a' disabled={pageNumber === totalPages} onClick={handleNextClick} className="mx-2">
+              <MDBBtn floating size='lg' tag='a' disabled={pageNumber === totalPages} onClick={handleNextClick} className="mx-2" style={{ backgroundColor: 'rgb(86, 61, 124)' }}>
                 <MDBIcon fas icon="chevron-right" />
               </MDBBtn>
               <div className="custom-ml-auto">

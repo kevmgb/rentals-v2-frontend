@@ -40,7 +40,7 @@ function ContactForm() {
           <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
           <MDBTextArea wrapperClass='mb-4' label='Message' id='textAreaExample' rows={4} />
 
-          <MDBBtn className="mb-4 w-100">Submit</MDBBtn>
+          <MDBBtn className="mb-4 w-100" style={{ backgroundColor: 'rgb(86, 61, 124)' }}>Submit</MDBBtn>
     </MDBContainer>
     </div>
   );

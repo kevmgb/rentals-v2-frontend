@@ -30,7 +30,7 @@ const SearchBar = () => {
     <>
       <MDBInputGroup className='mb-3'>
         <input className='form-control' placeholder="Search..." type='text' value={searchTerm} onChange={handleInputChange}/>
-        <MDBBtn onClick={handleSearch}>Search</MDBBtn>
+        <MDBBtn onClick={handleSearch} style={{ backgroundColor: 'rgb(86, 61, 124)' }}>Search</MDBBtn>
       </MDBInputGroup>
     </>
   );
