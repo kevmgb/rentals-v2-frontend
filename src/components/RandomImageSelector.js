@@ -16,10 +16,7 @@ const RandomImageSelector = () => {
   return (
     <div>
       {randomImage && (
-        <>
-        {console.log(randomImage)}
         <MDBCardImage src={`/images/property/${randomImage}`} alt='Randomly selected' position='top'/>
-        </>
       )}
     </div>
   );

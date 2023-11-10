@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams } from 'react-router-dom';
 import '../App.css';
-import image from '../images/house.jpg';
 import HouseSpecifications from "./HouseSpecifications";
+import RandomImageSelector from './RandomImageSelector';
 import {
   MDBCard,
   MDBCardBody,
@@ -43,7 +43,7 @@ function DetailsPage() {
           <MDBCard className='mb-3'>
             <MDBRow>
               <div className="col-md-8">
-                <MDBCardImage position='top' src={image} alt='...' />
+                <RandomImageSelector />
               </div>
               <div className="col-md-4">
                 <MDBRow>
