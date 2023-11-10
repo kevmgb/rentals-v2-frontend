@@ -10,6 +10,8 @@ import axios from 'axios';
 function UserProfilePage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const token = localStorage.getItem('token');
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   }
@@ -21,7 +23,7 @@ function UserProfilePage() {
     
     e.preventDefault();
     
-    const token = localStorage.getItem('token');
+    
     axios.post("http://localhost:8080/api/v1/user/update", {
       name: name,
       email: email,
@@ -44,11 +46,17 @@ function UserProfilePage() {
   }
 
   const loadUserProfile = () => {
-    axios.get("http://localhost:8080/api/v1/user")
+    axios.get("http://localhost:8080/api/v1/user", {
+      headers: {
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': `Bearer ${token}`
+      }
+    })
       .then(response => {
-        const { nameRes, emailRes } = response.data;
-        setName(nameRes);
-        setEmail(emailRes);
+        const { name, email } = response.data;
+        setName(name);
+        setEmail(email);
       })
       .catch(error => console.error('Error:', error));
   };
@@ -69,7 +77,7 @@ function UserProfilePage() {
             </div>
   
             <MDBInput wrapperClass='mb-4' label='Name' id='typeText' type='text' value={name} onChange={handleNameChange}/>
-            <MDBInput wrapperClass='mb-4' label='Email' id='typeText' type='text' value={email} onChange={handleEmailChange}/>
+            <MDBInput wrapperClass='mb-4' label='Email' id='typeText' type='text' value={email} onChange={handleEmailChange} readOnly/>
             
             <form onSubmit={handleProfileUpdateSubmit}>
               <MDBBtn className="mb-4 w-100">Update Profile</MDBBtn>
