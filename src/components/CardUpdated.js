@@ -15,29 +15,15 @@ import {
 import cardImage from '../images/house.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import RandomImageSelector from './RandomImageSelector';
 export default function CardUpdated({id, name, beds, baths, description, canDelete, handleDeletePost}) {
-  
-  // const handleDeletePost = () => {
-  //   const token = localStorage.getItem('token');
-  //   axios.delete(`http://localhost:8080/api/v1/listing/delete/${id}`, {
-  //       headers: {
-  //           'Access-Control-Allow-Origin': '*',
-  //           'Authorization': `Bearer ${token}`
-  //         }
-  //   })
-  //     .then(response => {
-  //       console.log(response.data);
-  //     })
-  //     .catch(error => console.error('Error:', error));
-  // };
-  
   return (
     
       <MDBCol className='h-100'>
         <MDBCard className='h-100'>
         <Link to={`/listing/detail/${id}`} style={{ color: 'inherit' }}>
-            <MDBCardImage src={cardImage} alt='...' position='top'/>
+            {/* <MDBCardImage src={cardImage} alt='...' position='top'/> */}
+            <RandomImageSelector />
             <MDBCardHeader>{name}</MDBCardHeader>
             <MDBCardBody>
               <MDBCardText>{description}</MDBCardText>
