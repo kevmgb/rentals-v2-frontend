@@ -61,7 +61,7 @@ function LoginSignup({setIsLoggedIn}) {
     
     e.preventDefault();
     
-    axios.post('http://localhost:8080/api/v1/login', {
+    axios.post('http://localhost:6868/api/v1/login', {
       email: email,
       password: password
     })
@@ -85,7 +85,7 @@ function LoginSignup({setIsLoggedIn}) {
     
     e.preventDefault();
     
-    axios.post('http://localhost:8080/api/v1/register', {
+    axios.post('http://localhost:6868/api/v1/register', {
       name: signupName,
       email: signupEmail,
       password: signupPassword

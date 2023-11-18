@@ -18,7 +18,7 @@ const SearchBar = () => {
   };
 
   const onSearch = (searchTerm) => {
-    fetch(`http://localhost:8080/api/v1/listings/search?query=${searchTerm}`)
+    fetch(`http://localhost:6868/api/v1/listings/search?query=${searchTerm}`)
     .then((response) => response.json())
     .then((data) => {
       navigate('/results', {state: { results: data }});

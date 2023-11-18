@@ -20,7 +20,7 @@ function DetailsPage() {
     const [houseDetails, setHouseDetails] = useState({});
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-      fetch(`http://localhost:8080/api/v1/listing/${id}`)
+      fetch(`http://localhost:6868/api/v1/listing/${id}`)
         .then(response => response.json())
         .then(data => {
           setHouseDetails(data);

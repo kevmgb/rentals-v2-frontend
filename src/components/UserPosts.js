@@ -35,7 +35,7 @@ function UserPosts({ isLoggedIn }) {
 
   const handleDeletePost = ({ id }) => {
     const token = localStorage.getItem('token');
-    axios.delete(`http://localhost:8080/api/v1/listing/delete/${id}`, {
+    axios.delete(`http://localhost:6868/api/v1/listing/delete/${id}`, {
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Authorization': `Bearer ${token}`
@@ -57,7 +57,7 @@ function UserPosts({ isLoggedIn }) {
   };
   const token = localStorage.getItem('token');
   const loadListings = (page, size) => {
-    axios.get(`http://localhost:8080/api/v1/user/listings?page=${page}&size=${size}` , {
+    axios.get(`http://localhost:6868/api/v1/user/listings?page=${page}&size=${size}` , {
         headers: {
             "Content-Type": "application/json",
             'Access-Control-Allow-Origin': '*',

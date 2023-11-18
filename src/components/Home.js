@@ -33,7 +33,7 @@ function Home() {
   };
 
   const loadListings = (page, size) => {
-    axios.get(`http://localhost:8080/api/v1/listings?page=${page}&size=${size}`)
+    axios.get(`http://localhost:6868/api/v1/listings?page=${page}&size=${size}`)
       .then(response => {
         const { content, totalElements, totalPages, pageNumber, pageSize } = response.data;
         setListings(content);

@@ -24,7 +24,7 @@ function UserProfilePage() {
     e.preventDefault();
     
     
-    axios.put("http://localhost:8080/api/v1/user", {
+    axios.put("http://localhost:6868/api/v1/user", {
       name: name,
     }, {
         headers: {
@@ -45,7 +45,7 @@ function UserProfilePage() {
   }
 
   const loadUserProfile = () => {
-    axios.get("http://localhost:8080/api/v1/user", {
+    axios.get("http://localhost:6868/api/v1/user", {
       headers: {
         "Content-Type": "application/json",
         'Access-Control-Allow-Origin': '*',

@@ -41,7 +41,7 @@ function ListingPost() {
     e.preventDefault();
     
     const token = localStorage.getItem('token');
-    axios.post('http://localhost:8080/api/v1/listing', {
+    axios.post('http://localhost:6868/api/v1/listing', {
       name: name,
       beds: beds,
       baths: baths,
